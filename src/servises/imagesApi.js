@@ -1,7 +1,8 @@
 import axios from "axios"
+const BASIC_URL = `https://pixabay.com/api/`;
 export default async function getImages(searchQuery, page = 1) {
-  try {
-    const BASIC_URL = `https://pixabay.com/api/`;
+  
+    
     const searchParams = new URLSearchParams({
       key: '29248530-2b5c64a89fa7cac0198f1c428',
       q: `${searchQuery}`,
@@ -12,10 +13,9 @@ export default async function getImages(searchQuery, page = 1) {
       per_page: 12,
     });
 
-    const response = await axios(`${BASIC_URL}/?${searchParams}`);
+    const url = `${BASIC_URL}?&${searchParams}`;
+  const response = await axios.get(url);
 
-    return response;
-  } catch (error) {
-    throw new Error(error);
-  }
+    return response.data;
+  
 }
