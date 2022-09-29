@@ -53,7 +53,7 @@ export const App = () => {
   };
 
   return (
-    <div className={s.container}>
+    <div className={s.App}>
       <Searchbar onSubmit={onFormSubmit} />
       {isShown && <ImageGallery data={images} />}
       {!isLoading && images.length > 0 && images.length < totalHits && (
